@@ -1,0 +1,18 @@
+{
+  "name": "confluencenodeprojectdemo",
+  "description": "this is confluence node project for demo",
+  "main": "index.js",
+  "authors": [
+    "pratap haldar"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/prataphaldar/confluencenodeproject",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/jsplugin",
+    "test",
+    "tests"
+  ]
+}

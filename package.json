@@ -1,0 +1,19 @@
+{
+  "name": "confluencenodeprojectdemo",
+  "version": "1.0.0",
+  "description": "this is confluence node project for demo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/prataphaldar/confluencenodeproject.git"
+  },
+  "author": "pratap haldar <prataphaldar1987@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/prataphaldar/confluencenodeproject/issues"
+  },
+  "homepage": "https://github.com/prataphaldar/confluencenodeproject#readme"
+}
