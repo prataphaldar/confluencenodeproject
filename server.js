@@ -1,5 +1,6 @@
 var app = require('./server/expressroutes/routesconfg')(__dirname);
+var port = process.env.PORT?process.env.PORT:4000;
 require('./server/mongo/mongodbconfig.js')();
-app.listen(4000,function(){
-    console.log("server running at port 4000 ........");
+app.listen(port,function(){
+    console.log("server running at "+port+"  ........");
 });
