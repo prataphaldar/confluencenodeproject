@@ -1,0 +1,63 @@
+<div class="container">
+
+<div class="row">
+User Excel<input type = "file" id ="userfile" onchange="angular.element(this).scope().uplodeXls(this.files[0])"><br>
+</div>
+  <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+           <form name="AddNewEvent">
+           <div class="form-group">
+           <label for="EventName">Event Name</label>
+           <input id="EventName" type="text" ng-model="EventObject.eventName" required/>
+           </div>
+            <div class="form-group">
+           <label for="EventStatus">Event Status</label>
+                  <select ng-model="EventObject.status" class="selectpicker">
+                  <option ng-selected="true" value="false">NOTSTARTED</option>                 
+                  <option value="true">STARTED</option>
+                </select>
+           </div>
+            <div class="form-group">
+           <label for="EventDate">Event Date</label>
+           <input id="EventDate" type="date" ng-model="EventObject.date" required/>
+           </div>
+           <div class="form-group" ng-repeat="dayList in EventObject.dayList track by $index">
+             <div>
+           <!--  <div ng-init="dayList.dayNo='D'+$index"> --> 
+          <!--    <div ng-init="dayList.dayNo=setDayNo($index)"> -->
+           <!--    {{dayList.dayNo}} -->
+                <input type="text" ng-model="dayList.day" placeholder="Day" required/>
+                <input type="date" ng-model="dayList.date" required/>   
+                <select ng-model="dayList.status">
+                  <option ng-selected="true" value="false">NOTSTARTED</option>                 
+                  <option value="true">STARTED</option>
+                </select>
+                <input type="button" value="ADD" class="btn btn-primary" ng-click="AddDay($index)"/>  
+                <input type="button" value="REMOVE" class="btn btn-danger" ng-disabled="EventObject.dayList.length<2" ng-click="RemoveDay($index)"/>            
+             </div>
+             <div  ng-repeat="agendaList in dayList.agendaList track by $index">
+               <!--  <div ng-init="agendaList.agendaNo=setAgendaNo($parent.$index,$index)"> -->
+           <!--    <div ng-init="agendaList.agendaNo='A'+$parent.$index+$index">  -->
+              <!--   {{agendaList.agendaNo}} -->
+                <input type="text" ng-model="agendaList.title" placeholder="AgendaName" required/>
+                <label for="startTime">Start Time</label><input id="startTime" type="time" ng-model="agendaList.startTime" required/>  
+                <label for="endTime">End Time</label><input id="endTime" type="time" ng-model="agendaList.endTime" required/>  
+                <label for="venue">Venue</label><input id="venue" type="text" ng-model="agendaList.venue" required/>  
+                <select ng-model="agendaList.status">
+                  <option ng-selected="true" value="NOTSTARTED">NOTSTARTED</option>                 
+                  <option value="INPROGRESS">INPROGRESS</option>                                 
+                  <option value="COMPLETED">COMPLETED</option>
+                </select>
+                <input type="button" value="ADD" class="btn btn-primary" ng-click="AddAgenda($parent.$index,$index)"/>  
+                <input type="button" value="REMOVE" class="btn btn-danger" ng-disabled="dayList.agendaList.length<2" ng-click="RemoveAgenda($parent.$index,$index)"/> 
+                </div>           
+             </div>        
+             
+           </div>
+           <div class="form-group">           
+           <input type="button" value="SUBMIT" class="btn btn-primary" ng-disabled="AddNewEvent.$invalid" ng-click="submitEvent()"/>
+           </div>
+           </form>
+        </div>
+  </div>
+</div>

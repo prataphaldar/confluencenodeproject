@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Admin Home</title>
+<link rel="stylesheet" href="/jsplugin/bootstrap/dist/css/bootstrap.css">
+<link rel="stylesheet" href="/jsplugin/bootstrap/dist/css/bootstrap-theme.css">
+<link rel="stylesheet" href="/jsplugin/bootstrap/dist/css/bootstrap.min.css">
+<!--<link rel="stylesheet" href="../JSplugin/croppie.css">-->
+<link rel="stylesheet" href="/css/style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/xlsx.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/jszip.js"></script>
+</head>
+<body ng-app="AdminEvent" ng-controller="AdminHomeContrl" >
+<nav class='navabr navbar-default'> 
+<div class="container">
+<div class='navbar-header'>
+  <p class="navbar-brand"> Confulence Admin</p>
+</div>
+<!--<span  ui-view='menubar'></span>-->
+   <ul class="nav navbar-nav">
+    <li><a ui-sref="/">Menu</a></li>
+    <li><a ui-sref="AddEvent">AddEvent</a></li>
+    <li><a ui-sref="EventNames({from:'manageEvent'})">ManageEvent</a></li>
+    <li><a ui-sref="EventNames({from:'deleteEvent'})">DeleteEvent</a></li>
+    <li><a ui-sref="EventNames({from:'users'})">Users</a></li>
+    <li><a href="#test">Test</a></li>
+    <li><a href="#AskQuestion">Question</a></li>
+   </ul>
+</div>  
+</nav>
+
+<div ui-view></div>  
+
+</body>
+<script src="/jsplugin/jquery/dist/jquery.js"></script>
+<script src="/jsplugin/bootstrap/dist/js/bootstrap.js"></script>
+<script src="/jsplugin/bower-angularjs/angular.js"></script>
+<script src="/jsplugin/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="/jsplugin/bower-angularjs/angular-resource.js"></script>
+<script src="/js/controller/adminPage.js"></script>
+<script src="/js/controller/addEventCntrl.js"></script>
+<script src="/js/service/resourceService.js"></script>
+<script src="/js/controller/eventNamesCntrl.js"></script>
+<script src="/js/controller/MangeEventCntrl.js"></script>
+<script src="/js/controller/ModifyEventCntrl.js"></script>
+</html>

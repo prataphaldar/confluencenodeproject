@@ -1,0 +1,96 @@
+
+
+
+
+.smalltiles{
+	width: 94%;
+    height: 100px;  
+    text-align: center;
+    vertical-align: middle;
+    padding: 5%;
+    font-weight: bold;	
+    margin: 10px;
+}
+
+.greencolor{
+	  background: green;
+	  color:white;
+}
+.redcolor{	
+	  background: red;
+}
+.yellowcolor{
+	background: yellow;
+}
+.bluecolor{
+	background: blue;
+	color:white;
+}
+
+.likeselected{
+	color:red;
+}
+
+.agendaCompleted{
+	color:black;
+}
+.agendaInProgress{
+	color:green;
+}
+.agendaNotCompleted{
+	color:red;
+}
+
+/* 
+@media (max-width:767px){
+.smalltiles{
+	width: 38%;
+}
+
+@media(min-width:767px){
+.smalltiles{
+	width: 38%;
+}
+}
+
+
+@media (min-width: 992px){
+  .smalltiles{
+	width: 50%;
+}
+}
+
+@media (min-width: 1200px){
+  .smalltiles{
+	width: 50%;
+}
+} */   
+
+
+.chekboxselected{
+    background-image:url('../images/checked_checkbox.png');
+    background-repeat: no-repeat;
+  background-size: 50px 50px;
+
+}
+.chekboxunselected{
+    background-image:url('../images/unchecked_checkbox.png');
+    background-repeat: no-repeat;
+    background-size: 50px 50px;
+
+}
+
+ #remMe :parent{
+    background-image:url('../images/unchecked_checkbox.png');
+    background-repeat: no-repeat;
+    background-size: 50px 50px;
+
+
+}
+ #remMe:checked :parent{
+    background-image:url('../images/checked_checkbox.png');
+    background-repeat: no-repeat;
+ background-size: 50px 50px;
+
+    
+} 
