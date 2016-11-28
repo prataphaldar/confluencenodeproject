@@ -1,17 +1,9 @@
 var adminapp=angular.module('AdminEvent',['ui.router','ngResource']);
-
-adminapp.config(function($stateProvider,$urlRouterProvider){
-   /* $stateProvider
-        .state('/',{
-        url:'/',  
-        views:{"menubar":{templateUrl:"menubar.html"},
-               "maincontent":{templateUrl:"EventMenu.html"}
-                }
-        })*/
+adminapp.config(['$stateProvider','$urlRouterProvider',function($stateProvider,$urlRouterProvider){
     $urlRouterProvider.otherwise('/');
      $stateProvider
         .state('/',{
-        url:'/', 
+        url:'/',
         templateUrl:"EventMenu.html"
         })
         .state('AddEvent',{
@@ -24,14 +16,14 @@ adminapp.config(function($stateProvider,$urlRouterProvider){
          templateUrl: 'EventNames.html',
          controller:'EventNamesCntrl',
          resolve:{
-            	  EventNameList:function(apiservice){            	
+            	  EventNameList:function(apiservice){
             		return apiservice.eventresource.query(function(res){
                         console.log("eventname resolve ",res);
-                    });           	
+                    });
             	  }
               }
         })
-        .state('ManageEvent',{ 
+        .state('ManageEvent',{
          url:'/ManageEvent/:eventId',
          templateUrl: 'ManageEvent.html',
          controller:'MangeEventCntrl'
@@ -41,18 +33,18 @@ adminapp.config(function($stateProvider,$urlRouterProvider){
          templateUrl: 'ModifyEvent.html',
          controller:'ModifyEventCntrl',
          resolve:{
-            	  EventList:function(apiservice,$stateParams){            	
+            	  EventList:function(apiservice,$stateParams){
             		return apiservice.eventresource.get({Eventid:$stateParams.eventId},function(res){
                         console.log("eventname resolve ",res);
-                    }).$promise;           	
+                    }).$promise;
             	  }
               }
         })
-});
+}]);
 
 
 
-adminapp.controller('AdminHomeContrl',function($scope,$location){
+adminapp.controller('AdminHomeContrl',['$scope','$location',function($scope,$location){
 	$scope.person={};
 	$scope.getDate=function(date){
 		if(date){
@@ -63,8 +55,8 @@ adminapp.controller('AdminHomeContrl',function($scope,$location){
 	  $scope.goPrevious=function(){
 		  $location.path($scope.previousPage);
 	  };
-	  
+
 	  $scope.update=function(){
 		 $scope.$apply();
-	  }	  
- });
+	  }
+ }]);

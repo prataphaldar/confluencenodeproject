@@ -1,4 +1,4 @@
-adminapp.controller('MangeEventCntrl',['$scope','$stateParams','$state',function($scope,$stateParams,$state){
+adminapp.controller('MangeEventCntrl',[ '$scope','$stateParams','$state', function($scope,$stateParams,$state){
 	var EventId =$stateParams['eventId'];
 	
 				$scope.ModifyEvent=function(){

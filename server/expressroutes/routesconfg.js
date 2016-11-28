@@ -1,5 +1,6 @@
 var express= require('express');
 var bodyParser= require('body-parser');
+var cors = require('cors');
 var homeroute=require('./homeroutes');
 var eventroute=require('./eventroutes');
 var path = require('path');
@@ -8,7 +9,8 @@ module.exports=function(rootdir){
     var app= express();
     app.use(express.static(rootdir+"/public"));
     app.use(express.static(rootdir+"/public/view"));
-    console.log('xyz',rootdir+"/public/view")
+    console.log('xyz',rootdir+"/public/view");
+    app.use(cors());
     app.use(bodyParser.json());
     homeroute(app,rootdir);
     eventroute(app);
