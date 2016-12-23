@@ -4,7 +4,6 @@ adminapp.controller('EventNamesCntrl',['$scope','apiservice','$state','$statePar
 	
 	$scope.goTopage=function(EventId,index){
 		if(param==='manageEvent'){
-			 // $location.path('/ModifyEvent/'+EventName);
 			 $state.go('ManageEvent',{eventId:EventId});
 		}
 		if(param==='deleteEvent'){
@@ -16,7 +15,7 @@ adminapp.controller('EventNamesCntrl',['$scope','apiservice','$state','$statePar
             })
 		}
 		if(param==='users'){
-			$state.go('/UserList/'+EventName);
+			$state.go('UserList',{eventId:EventId});
 		}
 	};
 	

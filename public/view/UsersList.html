@@ -1,0 +1,29 @@
+<div class="container">
+<div class="row">
+Step1: Upload Images<input type = "file" id ="userimages" onchange="angular.element(this).scope().uploadProfileImgages(this)" multiple="multiple">
+Step2: Upload User Excel<input type = "file" id ="userfile" onchange="angular.element(this).scope().uplodeXls(this.files[0])"><br>
+
+</div>
+<div>
+Step3: <input type="button" value="Submit" ng-click="submitAll()"/>
+</div>
+  <div class="row">
+        <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12 clearfix"
+           ng-repeat="user in userCompletelist"
+           >
+
+        <img alt="user" ng-src="data:image/png;base64,{{user.pic}}" class="img-circle" style="width: 200px;height: 200px;"></img>
+                {{user.eventName}} <br>
+                {{user.empId}} <br>
+                {{user.email}}<br>
+                {{user.fullName}}<br>
+                {{user.business}}<br>
+                {{user.account}}<br>
+                {{user.contactNo}}<br>
+                {{user.tableNo}}<br>
+                {{user.actove}}<br>
+        </div>
+
+  </div>
+
+</div>

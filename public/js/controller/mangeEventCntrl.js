@@ -5,12 +5,12 @@ adminapp.controller('MangeEventCntrl',[ '$scope','$stateParams','$state', functi
 					$state.go('ModifyEvent',{eventId:EventId});
 				};
 				$scope.ModifyUser=function(){
-					//$location.path('/AddEventUsers/'+EventName+'/modifyuser');
+					$state.go('EventUsersName',{eventId:EventId,action:'modifyUser'});
 					};
 				$scope.RemoveUser=function(){
 					//$location.path('/AddEventUsers/'+EventName+'/removeuser');
 				};
 				$scope.AddUser=function(){
-					$state.go('/EventUsers/'+EventId+'/adduser');
+					$state.go('EventUsers',{eventId:EventId,action:'adduser'});
 				};
  }]);

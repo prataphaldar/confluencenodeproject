@@ -37,13 +37,14 @@ module.exports = function(config) {
         'public/js/**/*.js':'coverage'
     },
 
-
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
     reporters: ['progress','coverage'],
 
-
+    junitReporter: {
+      outputFile: 'test-results.xm', // if included, results will be saved as
+    },
     // web server port
     port: 9876,
 

@@ -4,6 +4,12 @@ adminapp.service('apiservice',['$resource',function($resource){
             update:{method:'PUT'}
         });
     })();
-    console.log(eventresource);
-    return{eventresource:eventresource};
+    var eventuserresource=(function(){
+        return $resource('/api/user/:eventId/:userId',{
+            update:{method:'PUT'}
+        });
+    })();
+
+    return{eventresource:eventresource,
+          eventuserresource:eventuserresource};
 }]);

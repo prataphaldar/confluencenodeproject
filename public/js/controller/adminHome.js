@@ -17,9 +17,7 @@ adminapp.config(['$stateProvider','$urlRouterProvider',function($stateProvider,$
          controller:'EventNamesCntrl',
          resolve:{
             	  EventNameList:function(apiservice){
-            		return apiservice.eventresource.query(function(res){
-                        console.log("eventname resolve ",res);
-                    });
+            		return apiservice.eventresource.query();
             	  }
               }
         })
@@ -34,11 +32,39 @@ adminapp.config(['$stateProvider','$urlRouterProvider',function($stateProvider,$
          controller:'ModifyEventCntrl',
          resolve:{
             	  EventList:function(apiservice,$stateParams){
-            		return apiservice.eventresource.get({Eventid:$stateParams.eventId},function(res){
-                        console.log("eventname resolve ",res);
-                    }).$promise;
+            		return apiservice.eventresource.get({Eventid:$stateParams.eventId}).$promise;
             	  }
               }
+        })
+        .state('EventUsers',{
+         url:'/EventUsers/:eventId/:action',
+         templateUrl: 'EventUsers.html',
+         controller:'EventUsersCntrl'
+        })
+        .state('EventUsersName',{
+         url:'/EventUsersName/:eventId/:action',
+         templateUrl: 'EventUserNameList.html',
+         controller:'EventUserNameListCntrl',
+         resolve:{
+            	  EventUserNameList:function(apiservice,$stateParams){
+            		return apiservice.eventuserresource.query({eventId:$stateParams.eventId}).$promise;
+            	  }
+              }
+        })
+       .state('EventUserModify',{
+         url:'/EventUserModify/:eventId/:userId',
+         templateUrl: 'EventUserModify.html',
+         controller:'EventUserModifyCntrl',
+         resolve:{
+            	  UserDetail:function(apiservice,$stateParams){
+            		return apiservice.eventuserresource.get({eventId:$stateParams.eventId,userId:$stateParams.userId}).$promise;
+            	  }
+              }
+        })
+        .state('UserList',{
+         url:'/UserList/:eventId',
+         templateUrl: 'UsersList.html',
+         controller:'UserListCntrl'
         })
 }]);
 
