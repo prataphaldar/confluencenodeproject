@@ -2,6 +2,7 @@ var express= require('express');
 var bodyParser= require('body-parser');
 var cors = require('cors');
 var homeroute=require('./homeroutes');
+var loginroute=require('./loginroutes');
 var eventroute=require('./eventroutes');
 var eventuserroute=require('./eventuserroutes');
 var path = require('path');
@@ -14,6 +15,7 @@ module.exports=function(rootdir){
     app.use(cors());
     app.use(bodyParser.json({limit: '50mb'}));
     homeroute(app,rootdir);
+    loginroute(app);
     eventroute(app);
     eventuserroute(app);
     return app; 
